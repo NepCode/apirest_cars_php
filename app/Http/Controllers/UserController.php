@@ -88,7 +88,7 @@ class UserController extends Controller
             //return response()->json($signup,200);
         }elseif ($gettoken != null){
             //var_dump($gettoken); die();
-            $signup = $jwtAuth->signup($email,$gettoken);
+            $signup = $jwtAuth->signup($email,$pwd,$gettoken);
 
             //return response()->json($signup,200);
 

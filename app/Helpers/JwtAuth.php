@@ -14,7 +14,7 @@ class JwtAuth{
         $this->key = 'esta-es-mi-clave-secreta-758458934753987493';
     }
 
-    public function signup($email,$password,$getToken=null){
+    public function signup($email,$password,$getToken = null){
 
         $user = User::where(
             array(
@@ -42,9 +42,9 @@ class JwtAuth{
             $decoded = JWT::decode($jwt,$this->key,array('HS256'));
 
             if(is_null($getToken)){
-                return $jwt;
+                return $jwt; //devuelve token si getToken es null
             }else{
-                return $decoded;
+                return $decoded; //en caso de ser true devuelve descifrado
             }
 
         }else{
