@@ -19,7 +19,6 @@ CREATE TABLE cars(
   user_id int(255) not null,
   title varchar(255),
   description text,
-  email varchar(255),
   price varchar(30),
   status varchar(30),
   created_at datetime DEFAULT NULL,
