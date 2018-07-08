@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Helpers\JwtAuth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\User;
+use App\User;//mopdelo a usar de los usuarios
 
 class UserController extends Controller
 {
@@ -23,7 +23,7 @@ class UserController extends Controller
         $role       = 'ROLE_USER';
         $password   = (!is_null($json) && isset($params->password)) ? $params->password : null;
 
-        if(!is_null($email)){
+        if( (!is_null($email)) && ($email != '') && ($email != ' ') ){
             //crea usuario
             $user = new User();
             $user ->email = $email;

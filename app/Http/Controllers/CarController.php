@@ -21,6 +21,12 @@ class CarController extends Controller
             'status' => 'success'
         ),200);
 
+       /* $cars = Car::all();
+        return response()->json(array(
+            'cars' => $cars,
+            'status' => 'success'
+        ),200);*/
+
        /* $hash = $request->header('Authorization',null);
 
         $jwtAuth = new JwtAuth();
@@ -40,6 +46,37 @@ class CarController extends Controller
             'cars' => $car,
             'status' => 'success'
         ),200);
+
+       /* $isset_user  = Car::where('id','=',$id)->first()->load('user');
+
+        if(count($isset_user) == 0){
+            $data = array(
+                'status' => 'success',
+                'code' => 200,
+                'message' => 'Car not found'
+            );
+        }else{
+            $data = array(
+                'cars' => $isset_user,
+                'status' => 'success',
+                'code' => 400
+            );
+        }
+        return response()->json($data,200);*/
+
+       /* $car = Car::find($id)->load('user');
+        if($car != null){
+            return response()->json(array(
+                'cars' => $car,
+                'status' => 'success'
+            ),200);
+        }else{
+            return response()->json(array(
+                'cars' => 'car not found',
+                'status' => 'success'
+            ),200);
+        }*/
+
     }
 
 
@@ -194,11 +231,8 @@ class CarController extends Controller
             //comprobar que existe el registro
             $car = Car::find($id);
 
-
-
             //borrarlo
             $car->delete();
-
 
             //devolverlo
             $data = array(
@@ -220,4 +254,4 @@ class CarController extends Controller
         return response()->json($data,200);
     }
 
-}
+}//end class

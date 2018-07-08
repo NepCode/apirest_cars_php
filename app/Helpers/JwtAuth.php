@@ -54,6 +54,7 @@ class JwtAuth{
     }
 
 
+    //recoger el token de un objeto jwt para comprobar si es correcto o no
     public function checkToken($jwt,$getIdentity = false){
         $auth = false;
 
