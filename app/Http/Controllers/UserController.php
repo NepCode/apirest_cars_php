@@ -35,10 +35,15 @@ class UserController extends Controller
             $pwd = hash('sha256',$password);
             $user->password = $pwd;
 
+
+
             //comprobar usuario duplicado
             $isset_user = User::where('email','=',$email)->first();
 
-            if(count($isset_user) == 0){
+            //var_dump($isset_user);die();
+
+            //if(count($isset_user) == 0){
+            if($isset_user == null){
                 //guardar usuario
                 $user->save();
                 $data = array(

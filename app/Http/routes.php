@@ -35,6 +35,21 @@ Route::get('/', function () {
 });
 
 
-Route::post('/api/register','UserController@register');
+Route::post('/api/register','UserController@register')->middleware('cors');
 Route::post('/api/login','UserController@login');
 Route::resource('/api/cars','CarController');
+
+//pruebas
+//Route::get('/api/hello', function () { return 'hello world GRRRRRR'; });
+
+/*Route::post('/api/hello', function () {
+    $data = array(
+        'status' => 'success',
+        'code' => 200,
+        'message' => 'hello'
+    );
+    return response()->json($data,200);
+
+});*/
+
+Route::post('/api/hello',['middleware' => 'cors', function () { return 'hello world GRRRRRR'; }]);
