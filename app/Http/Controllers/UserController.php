@@ -42,8 +42,8 @@ class UserController extends Controller
 
             //var_dump($isset_user);die();
 
-            //if(count($isset_user) == 0){
-            if($isset_user == null){
+            if(count($isset_user) == 0){
+            //if($isset_user == null){
                 //guardar usuario
                 $user->save();
                 $data = array(
