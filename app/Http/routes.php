@@ -54,4 +54,4 @@ Route::resource('/api/cars','CarController');
 
 });*/
 
-Route::post('/api/hello',['middleware' => 'cors', function () { return 'hello world GRRRRRR'; }]);
+Route::get('/api/hello',['middleware' => 'cors', function () { return 'hello world GRRRRRR'; }]);
