@@ -41,11 +41,23 @@ class CarController extends Controller
 
 
     public function show($id){
-        $car = Car::find($id)->load('user');
-        return response()->json(array(
-            'cars' => $car,
-            'status' => 'success'
-        ),200);
+
+        $car = Car::find($id);
+
+        if(is_object($car)) {
+
+            $car = Car::find($id)->load('user');
+            return response()->json(array(
+                'car' => $car,
+                'status' => 'success'
+            ), 200);
+
+        }else {
+            return response()->json(array(
+                'message' => 'not exists',
+                'status' => 'error'
+            ), 200);
+        }
 
        /* $isset_user  = Car::where('id','=',$id)->first()->load('user');
 
@@ -199,6 +211,12 @@ class CarController extends Controller
 
 
             //actualizar el registro
+            unset($params_array['id']);
+            unset($params_array['user_id']);
+            unset($params_array['created_at']);
+            unset($params_array['user']);
+
+
             $car = Car::where('id',$id)->update($params_array);
 
             $data = array(
