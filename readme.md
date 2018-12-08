@@ -1,5 +1,6 @@
 # apirest_cars_php
 apirest created with laravel, login and CRUD for cars
+using JWT for login and validation to make requests
 
 
 
